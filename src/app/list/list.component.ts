@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { FirebaseListObservable } from 'angularfire2';
+
+import { BlogsService } from '../blogs.service';
+import { Blog } from '../blog.model';
+
 
 @Component({
   selector: 'app-list',
@@ -7,9 +14,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  blogs: FirebaseListObservable<Blog[]>;
+
+  //constructor(private _blogService: BlogsService) { }
+  constructor(private _blogsService: BlogsService, private _router: Router) {}
 
   ngOnInit() {
+    // this._blogService.getBlogs()
+    //     .then(response => this.blogs = response);
+    this.blogs = this._blogsService.getBlogs();
+    //console.log(JSON.stringify(this.blogs));
+  }
+
+  readMore(b: Blog) {
+    //b.subscribe(b => {this._blogsService.setBlog(b as Blog)})
+    //this._blogsService.setBlog(b);
+    //this._router.navigate(['/content']);
   }
 
 }

@@ -4,7 +4,7 @@
 	margin: auto;
 	width: 97px;
 	height: 97px;
-	position: relative;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -149,9 +149,29 @@
 	}
 }
 
+.animate {
+	-webkit-animation: cssAnimation 0.456s 1 ease;
+	-moz-animation: cssAnimation 0.456s 1 ease;
+	-o-animation: cssAnimation 0.456s 1 ease;
+}
+@-webkit-keyframes cssAnimation {
+	from { -webkit-transform: rotate(0deg) scale(0.955) skew(0deg) translate(0px); }
+	to { -webkit-transform: rotate(0deg) scale(1.0) skew(0deg) translate(0px); }
+}
+@-moz-keyframes cssAnimation {
+	from { -moz-transform: rotate(0deg) scale(0.955) skew(0deg) translate(0px); }
+	to { -moz-transform: rotate(0deg) scale(1.0) skew(0deg) translate(0px); }
+}
+@-o-keyframes cssAnimation {
+	from { -o-transform: rotate(0deg) scale(0.955) skew(0deg) translate(0px); }
+	to { -o-transform: rotate(0deg) scale(1.0) skew(0deg) translate(0px); }
+}
+
 .portfolio-header {
   position: relative;
   background-image: url(assets/images/header-bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .portfolio-header .mdl-layout__header-row {
@@ -165,6 +185,7 @@
   font-size: 14px;
   text-align: center;
   font-weight: 300;
+	color: #ffffff;
 }
 
 .is-compact .mdl-layout__title span {
@@ -210,6 +231,7 @@
       -ms-flex: 1;
           flex: 1;
   line-height: 42px;
+	color: #ffffff;
 }
 
 .portfolio-header .mdl-layout__drawer-button {
@@ -307,3 +329,11 @@ footer {
   background-size: cover;
 }
 
+.portfolio-card .mdl-card__supporting-text {
+	height: 90px;
+}
+/*
+.portfolio-card .mdl-card__supporting-text::after {
+	content: "...";
+	padding-bottom: 20px;
+}*/
