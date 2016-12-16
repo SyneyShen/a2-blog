@@ -327,6 +327,10 @@ img.article-image {
 footer {
   background-image: url(assets/images/footer-background.png);
   background-size: cover;
+	padding-right: 0px;
+	width: 100%;
+	position: inherit;
+	bottom: 0;
 }
 
 .portfolio-card .mdl-card__supporting-text {

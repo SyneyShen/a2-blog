@@ -22,10 +22,6 @@ export class BlogsService {
     // need to process the exception when the push is failed.
   }
 
-  setBlog(key: string) {
-    this.blog = this._angularFire.database.object('example/' + key);
-  }
-
   getBlog(key: string): FirebaseObjectObservable<Blog> {
     this.blog = this._angularFire.database.object('example/' + key);
     return this.blog;

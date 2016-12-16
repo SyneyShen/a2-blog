@@ -4,22 +4,17 @@
             <h2 class="mdl-card__title-text">验证</h2>
         </div>
         <div class="mdl-card__supporting-text">
-            <form>
+            <form (submit)="verify(ctrl.value)">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded" (click)="whichElement = 'cmd'" [ngClass]="{'is-focused': whichElement==='cmd', 'is-dirty': ctrl.value}">
-                    <input class="mdl-textfield__input" type="text" id="Cmd" name="cmd" #ctrl="ngModel" [(ngModel)]="cmd" required>
+                    <input class="mdl-textfield__input" type="text" id="Cmd" #ctrl required>
                     <label class="mdl-textfield__label" for="Cmd">验证信息...</label>
                 </div>
-                <p>
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="verify()" [disabled]="!ctrl.valid">
-                    确定
-                    </button>
-                </p>
             </form>
         </div>
     </div>
 </div>
 
-<div class="animate mdl-grid portfolio-max-width portfolio-contact" *ngIf="verified">
+<div class="animate mdl-grid portfolio-max-width portfolio-contact" *ngIf="verified === true">
     <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
         <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">新博客</h2>

@@ -14,7 +14,7 @@ import { Blog } from '../blog.model';
 })
 export class ListComponent implements OnInit {
 
-  blogs: FirebaseListObservable<Blog[]>;
+  blogs: Blog[];
 
   //constructor(private _blogService: BlogsService) { }
   constructor(private _blogsService: BlogsService, private _router: Router) {}
@@ -22,8 +22,12 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     // this._blogService.getBlogs()
     //     .then(response => this.blogs = response);
-    this.blogs = this._blogsService.getBlogs();
-    //console.log(JSON.stringify(this.blogs));
+
+    //this.blogs = this._blogsService.getBlogs();
+
+    this._blogsService.getBlogs().subscribe(resp => {
+      this.blogs = resp;
+    });
   }
 
   readMore(b: Blog) {

@@ -12,7 +12,6 @@ import { Blog } from '../blog.model';
 })
 export class NewblogComponent implements OnInit {
   verified: boolean = false;
-  cmd: string;
 
   constructor(private _blogsService: BlogsService, private _router: Router) { }
 
@@ -34,8 +33,12 @@ export class NewblogComponent implements OnInit {
     this._router.navigate(['/list']);
   }
 
-  verify() {
-    console.log(this.cmd);
+  verify(pw: string) {
+    console.log(pw);
+    
+    if (pw === 'q1w2e3r4') {
+      this.verified = true;
+    }
   }
 
 }
